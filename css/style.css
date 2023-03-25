@@ -35,7 +35,6 @@
 
 header {
     width: 100%;
-    height: 100vh;
     background: url(../images/desktop/image-hero.jpg) center no-repeat;
     background-size: cover;
 }
@@ -48,6 +47,9 @@ header nav {
 }
 header nav .logo img{
     width: 80%;
+}
+.mobile-menu {
+    display: none;
 }
 .menu-list {
     display: flex;
@@ -87,15 +89,12 @@ header nav .logo img{
 
 
 header .hero {
-    /* display: flex;
-    align-items: center; */
-    margin-top: 6rem;
+    padding: 6rem 0;
 }
 header .hero .content-box {
     
     width: 70%;
     padding: 3rem;
-    /* background-color: #fff; */
     border: 2px solid #fff;
 }
 header .hero .content-box h1 {
@@ -142,20 +141,24 @@ header .hero .content-box h1 {
     line-height: 1.4;
 }
 
-main .creations .top-box{
+main .creations .top-box,
+main .creations .bottom-box{
     display: flex;
     justify-content:space-between;
     align-items: center;
     margin-bottom: 2rem;
     font-family: 'Alata', sans-serif;
 }
+main .creations .bottom-box {
+    display: none;
+}
 
 main .creations .top-box h1 {
-    /* font-family: 'Alata', sans-serif; */
     text-transform: uppercase;
     font-weight: var(--Josefin-Sans-Weight);
     font-size: 44px;
 }
+main .creations .bottom-box button,
 main .creations .top-box button {
     padding: 0 56px;
     height: 44px;
@@ -170,6 +173,7 @@ main .creations .top-box button {
     cursor: pointer;
     transition: background .3s;
 }
+main .creations .bottom-box button:hover
 main .creations .top-box button:hover {
     background-color: var(--Black);
     color: var(--White);
@@ -249,4 +253,118 @@ footer .container .column .menu-list .menu-link {
 footer .container .column p {
     color: var(--Dark-Gray);
     font-size: var(--Font-size);
+}
+
+
+@media screen and (max-width:375px) {
+    .container {
+        padding:0 1rem;
+    }
+    header nav .menu-list {
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--Black);
+        transform: translateX(100%);
+        transition: transform .4s;
+        z-index: 5;
+    }
+    header nav .menu-list .menu-link {
+        font-size: 2rem;
+    }
+    .open {
+        display: block;
+        cursor: pointer;
+    }
+    .close {
+        display: block;
+        position: absolute;
+        right: 5%;
+        top: 5%;
+        cursor: pointer;
+    }
+    header .hero .content-box {    
+        width:100%;
+        padding: 2rem;
+    }
+    header .hero .content-box h1 {
+        font-size: 2rem;
+    }
+    main .section {
+        padding: 3rem 0;
+    }
+    main .about {
+        flex-direction: column;
+    }
+    main .about .img-box {
+        width: 100%;
+    }
+    main .about .img-box img {
+        width: 100%;
+        object-fit: cover;
+    }
+    main .about .content-details {
+        width: 100%;
+        transform: none;
+        padding: 0;
+        text-align: center;
+    }
+    .about .content-details h1 {
+        font-size: 2.4rem;
+    }
+    .about .content-details p {
+        margin-right: 0;
+    }
+    main .about .content-box:last-child {
+        transform: none;
+    }
+    main .creations .top-box h1 {
+        font-size: 2rem;
+    }
+    main .creations .top-box button {
+        display: none;
+    }
+    main .creations .cards {
+        display: grid;
+        grid-template-columns: auto;
+        margin-bottom:2rem;
+        
+    }
+    main .creations .cards .card {
+        height: 140px;
+        width: 100%;
+    }
+    main .creations .cards .card img {
+        width: 100%;
+        height: unset;
+        object-fit: cover;
+    }
+    main .creations .cards .card .card-content p {
+        font-size: 26px;
+        line-break: auto;
+    }
+    main .creations .bottom-box {
+        display: flex;
+        margin: 0 ;
+        justify-content: center;
+    }
+    footer .container .column {
+        flex-direction: column;
+        justify-content: center;
+    }
+    footer .container .column .menu-list {
+        /* margin: 1rem 0; */
+        flex-direction: column;
+    }
+    footer .container .column .icons .icon-box {
+        margin:0 1rem ;
+    }
+    footer .container .column .menu-list .menu-link {
+        margin:unset ;
+    }
 }
