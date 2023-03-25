@@ -173,7 +173,7 @@ main .creations .top-box button {
     cursor: pointer;
     transition: background .3s;
 }
-main .creations .bottom-box button:hover
+main .creations .bottom-box button:hover,
 main .creations .top-box button:hover {
     background-color: var(--Black);
     color: var(--White);
